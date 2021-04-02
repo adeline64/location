@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    <section id="home-header">
+        <div id="header-img"></div>
+        <h2>La location d'outils de particuliers à particuliers</h2>
+    </section>
+
+            
+                <h2>Les logements</h2>
+            
+       
+    <main class="container">
+        <div class="list">
+            {% for outil in outils %}
+                    <div class=" item js-marker" data-lat = "{{ outil.lat }}" data-lon = "{{ outil.lon }}" data-prix = "{{ outil.prix|number_format(0, ',', ' ') }}" data-cat="{{outil.img_category}}" >
+                        <div class="img_box">
+                            <img src="{{ asset('img/outil/' ~ outil.img) }}" alt="photo principale outil {{ loop.index }}">
+                        </div>
+                        <h3>{{ outil.nom }}</h5>
+                        <p>{{ outil.description|u.truncate(50, '...') }}</p>
+                        <p>Prix : {{ outil.prix|number_format(0, ',', ' ') }} €</p>
+                        <a href="#" class="btn btn-outline-secondary">Voir plus</a>
+                    </div>
+            {% endfor %}
+        </div>
+    <div class="map" id="map"></div>
+    </main> 
+    
+
+{% endblock %}
+

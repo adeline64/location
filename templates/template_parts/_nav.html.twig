@@ -1,0 +1,72 @@
+<!-- ======= Top Bar ======= -->
+<section id="topbar" class="d-none d-lg-block">
+	<div class="container clearfix">
+		<div class="social-links float-right">
+			<a href="#" class="facebook">
+				<i class="icofont-facebook"></i>
+			</a>
+			<a href="#" class="instagram">
+				<i class="icofont-instagram"></i>
+			</a>
+		</a>
+	</div>
+	<div class="contact-info float-right">
+		<i class="icofont-envelope"></i>
+		<a href="mailto:#">monemail</a>
+	</div>
+</div>
+</section><!-- ======= Header ======= --><header id="header">
+<div class="container">
+
+	<div class="logo float-left">
+		<h1 class="text-light"><a href="index.html"><span>TOOL</span></a></h1>
+		<!-- Uncomment below if you prefer to use an image logo -->
+	{# <img src="{{asset('assets/images/owl.png')}}" alt="" class="img-fluid"> </a> #}
+</div>
+
+<nav class="nav-menu float-right d-none d-lg-block">
+	<ul>
+		<li>
+			<a class="nav-link" href="{{path('home') }}">Accueil</a>
+		</li>
+        <li>
+			<a class="nav-link" href="{{path('outils_index')}}">Outils</a>
+		</li>
+        {% if (app.user.email is defined) %}
+			{% if is_granted('ROLE_ADMIN') %}
+				<li class="nav-item">
+					<a class="nav-link" href="#">Administration</a>
+				</li>
+				{% endif %}
+			{% if is_granted('ROLE_USER') %}
+				<li class="nav-item">
+					<a class="nav-link" href="path{{('outils_new')}}">Administration</a>
+				</li>
+
+
+			{% endif %}
+{% endif %}
+		
+		<li>
+			<a href="#">Contact</a>
+		</li>
+		{% if (app.user.email is defined) %}
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_logout') }}">Déconnexion</a>
+			</li>
+			
+		{% else %}
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_login') }}">Connexion</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_register') }}">Inscription</a>
+			</li>
+		{% endif %} 
+
+	</ul>
+</nav>
+<!-- .nav-menu -->
+</div>
+</header>
+<!-- End Header -->

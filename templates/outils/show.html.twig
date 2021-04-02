@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h1>Outils</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ outil.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ outil.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ outil.prix }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ outil.category }}</td>
+            </tr>
+            <tr>
+                <th>Img</th>
+                <td>{{ outil.img }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

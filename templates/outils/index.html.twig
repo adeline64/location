@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Outils index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Category</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for outil in outils %}
+            <tr>
+                <td>{{ outil.nom }}</td>
+                <td>{{ outil.description }}</td>
+                <td>{{ outil.prix }}</td>
+                <td>{{ outil.category }}</td>
+                <td>{{ outil.img }}</td>
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
